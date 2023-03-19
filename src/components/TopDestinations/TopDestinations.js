@@ -1,48 +1,23 @@
-import React from "react";
+import { Link } from "react-router-dom";
+import { useEffect, useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-// Import Swiper styles
+
+//swiper
+import { Pagination } from "swiper";
 import "swiper/css";
 import "swiper/css/pagination";
 
-// import required modules
-import { Pagination } from "swiper";
-
+import { Destinations } from "../../../src/data.js";
 import CardListDestinations from "../CardListDestination/CardListDestination";
 import CardDestinations from "../CardDestination/CardDestinations";
-import Img1 from "../../assets/imgs/card_img1.png";
-import Img2 from "../../assets/imgs/card_img2.png";
-import Img3 from "../../assets/imgs/card_img3.png";
-import Img4 from "../../assets/imgs/card_img4.png";
 
-const topDestinations = [
-  {
-    id: 1,
-    city: "Paraty",
-    country: "Rio de Janeiro",
-    image: Img1,
-  },
-  {
-    id: 2,
-    city: "Morretes",
-    country: "Paraná",
-    image: Img2,
-  },
-  {
-    id: 3,
-    city: "Olinda",
-    country: "Pernambuco",
-    image: Img3,
-  },
-  {
-    id: 4,
-    city: "Gramado",
-    country: "Rio Grande do Sul",
-    image: Img4,
-  },
-];
-const TopDestinations = () => {
+const TopDestinations = ({ getRef }) => {
+  const topDestinationsRef = useRef();
+  useEffect(() => {
+    getRef(topDestinationsRef.current);
+  }, [getRef]);
   return (
-    <div className="top__destinations">
+    <div className="top__destinations" ref={topDestinationsRef}>
       <div className="container">
         <h2 className="top__destinations-title">
           <span className="heading--secondary-font">top</span>
@@ -69,11 +44,16 @@ const TopDestinations = () => {
             pagination={true}
             modules={[Pagination]}
           >
-            {topDestinations.map((item) => (
-              <SwiperSlide key={item.id}>
-                <CardDestinations image={item.image} country={item.country} city={item.city} />
-              </SwiperSlide>
-            ))}
+            {Destinations.map(
+              (item, index) =>
+                index < 4 && (
+                  <SwiperSlide key={item.id}>
+                    <Link to={`/destinations/details/${item.id}`}>
+                      <CardDestinations item={item} />
+                    </Link>
+                  </SwiperSlide>
+                )
+            )}
           </Swiper>
         </CardListDestinations>
       </div>

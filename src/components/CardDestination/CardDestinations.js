@@ -1,6 +1,7 @@
 import React from "react";
 
-const CardDestinations = ({ id, image, country, city }) => {
+const CardDestinations = ({ item }) => {
+  const { id, image, country, city } = item;
   return (
     <div className="card">
       <img src={image} alt={`Img-${id}`} />

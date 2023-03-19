@@ -1,7 +1,8 @@
 import React from "react";
 import btnDown from "../../assets/imgs/btn_down.png";
 
-const Hero = () => {
+const Hero = (data) => {
+  const topDestinationsRef = data.data;
   return (
     <div className="hero">
       <div className="container">
@@ -12,7 +13,12 @@ const Hero = () => {
           </h1>
 
           <div className="hero-more">
-            <button className="btn-down">
+            <button
+              className="btn-down"
+              onClick={() => {
+                window.scrollTo(0, topDestinationsRef.offsetTop);
+              }}
+            >
               <img src={btnDown} alt="btnDown" />
             </button>
             <div className="hero-text">

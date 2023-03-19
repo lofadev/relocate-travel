@@ -5,39 +5,10 @@ import "swiper/css";
 import "swiper/css/pagination";
 import { Pagination } from "swiper";
 
+import { Destinations } from "../../../src/data.js";
 import CardListDestinations from "../CardListDestination/CardListDestination";
-import Img5 from "../../assets/imgs/card_img5.png";
-import Img6 from "../../assets/imgs/card_img6.png";
-import Img7 from "../../assets/imgs/card_img7.png";
-import Img8 from "../../assets/imgs/card_img8.png";
 import CardDestinations from "../CardDestination/CardDestinations";
-
-const moreDestinations = [
-  {
-    id: 1,
-    city: "Estaing",
-    country: "France",
-    image: Img5,
-  },
-  {
-    id: 2,
-    city: "Vík í Mýrda",
-    country: "Iceland",
-    image: Img6,
-  },
-  {
-    id: 3,
-    city: "Hamnoy village",
-    country: "Norway",
-    image: Img7,
-  },
-  {
-    id: 4,
-    city: "Montego Bay",
-    country: "Jamaica",
-    image: Img8,
-  },
-];
+import { Link } from "react-router-dom";
 
 const MoreDestinations = () => {
   const [isUnderTablet, setIsUnderTablet] = useState(window.innerWidth < 1024);
@@ -69,15 +40,17 @@ const MoreDestinations = () => {
         <div className="more__destinations-list">
           {!isUnderTablet ? (
             <CardListDestinations inPc={isUnderTablet}>
-              {moreDestinations.map((item) => (
-                <CardDestinations
-                  key={item.id}
-                  id={item.id}
-                  image={item.image}
-                  country={item.country}
-                  city={item.city}
-                />
-              ))}
+              {Destinations.map(
+                (item, index) =>
+                  index >= 4 &&
+                  index < 8 && (
+                    <div className="card-items__wrap" key={item.id}>
+                      <Link to={`destinations/details/${item.id}`}>
+                        <CardDestinations item={item} />
+                      </Link>
+                    </div>
+                  )
+              )}
             </CardListDestinations>
           ) : (
             <CardListDestinations inPc={isUnderTablet}>
@@ -95,11 +68,17 @@ const MoreDestinations = () => {
                 pagination={true}
                 modules={[Pagination]}
               >
-                {moreDestinations.map((item) => (
-                  <SwiperSlide key={item.id}>
-                    <CardDestinations image={item.image} country={item.country} city={item.city} />
-                  </SwiperSlide>
-                ))}
+                {Destinations.map(
+                  (item, index) =>
+                    index >= 4 &&
+                    index < 8 && (
+                      <SwiperSlide key={item.id}>
+                        <Link to={`destinations/details/${item.id}`}>
+                          <CardDestinations item={item} />
+                        </Link>
+                      </SwiperSlide>
+                    )
+                )}
               </Swiper>
             </CardListDestinations>
           )}

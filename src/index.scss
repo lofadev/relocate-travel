@@ -106,6 +106,83 @@ li {
   color: #000 !important;
 }
 
+.empty {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &-heading {
+    font-size: 5rem;
+    position: relative;
+  }
+
+  &-heading::after {
+    content: "";
+    width: 70%;
+    height: 10rem;
+    position: absolute;
+    bottom: -18rem;
+    left: 17%;
+    transform-origin: center;
+    transform: scale(1);
+    background-color: rgba(83, 83, 88, 0.2);
+    box-shadow: 0 0 5rem rgba(0, 0, 0, 0.2);
+    border-radius: 100%;
+    animation: zoom 2s alternate infinite;
+  }
+
+  &-heading span {
+    position: relative;
+  }
+  &-heading span:nth-child(1) {
+    animation: spin 2s cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite;
+  }
+
+  &-heading span:nth-child(2) {
+    animation: spin 2s cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite 0.2s;
+  }
+
+  &-heading span:nth-child(3) {
+    animation: spin 2s cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite 0.4s;
+  }
+
+  &-heading span:nth-child(4) {
+    animation: spin 2s cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite 0.6s;
+  }
+
+  &-heading span:nth-child(5) {
+    animation: spin 2s cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite 0.8s;
+  }
+
+  @keyframes spin {
+    0%,
+    100% {
+      top: 0;
+    }
+    50% {
+      top: 3rem;
+    }
+  }
+
+  @keyframes zoom {
+    to {
+      transform: scale(1.1);
+    }
+  }
+
+  @media screen and (max-width: 767.98px) {
+    &-heading {
+      font-size: 2rem;
+    }
+
+    &-heading::after {
+      height: 5rem;
+      bottom: -10rem;
+    }
+  }
+}
+
 .heading--secondary-font {
   display: block;
   font-family: var(--secondary-font);
@@ -122,7 +199,7 @@ li {
   line-height: calc(10rem / 8rem);
 }
 
-.wrapper {
+#wrapper {
   width: 100%;
   max-width: var(--main-width);
   margin: 0 auto;
@@ -608,11 +685,19 @@ li {
     height: 710px;
   }
 
+  > a {
+    display: block;
+  }
+
   .inpc.card-list {
     height: 100%;
     display: grid;
     gap: 2rem;
-    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .card-items__wrap {
+    height: 100%;
+    margin-left: 0;
   }
 
   .card {
@@ -625,11 +710,11 @@ li {
     background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.6) 100%);
   }
 
-  .card:nth-child(1) {
+  .card-items__wrap:nth-child(1) {
     grid-row: 1 / 3;
   }
 
-  .card:nth-child(4) {
+  .card-items__wrap:nth-child(4) {
     grid-column: 2 / 4;
   }
 
@@ -824,5 +909,18 @@ li {
   .more__destinations,
   .top__destinations {
     padding-top: 0;
+  }
+}
+
+// section hero
+.section-hero {
+  width: 100%;
+  height: 59.5rem;
+  background: url("./assets/imgs/background_beach_destinations.png") top center / cover no-repeat;
+  position: relative;
+
+  .background-linear {
+    position: absolute;
+    bottom: 0;
   }
 }

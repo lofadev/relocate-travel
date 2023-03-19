@@ -7,6 +7,11 @@ const Header = () => {
   const handleToggleMenu = () => {
     setIsShow((prev) => !prev);
   };
+
+  const handleGoToTop = () => {
+    window.scrollTo(0, 0);
+  };
+
   useEffect(() => {
     if (isShow) {
       menuRef.current.classList.add("show");
@@ -15,19 +20,27 @@ const Header = () => {
     }
   }, [isShow]);
 
+  const handleSetShowMenu = () => {
+    if (window.innerWidth >= 1024) {
+      setIsShow(false);
+    }
+  };
+
   useEffect(() => {
-    window.addEventListener("resize", () => {
-      if (window.innerWidth >= 1024) {
-        setIsShow(false);
-      }
-    });
+    window.addEventListener("resize", handleSetShowMenu);
+
+    return () => {
+      window.removeEventListener("resize", handleSetShowMenu);
+    };
   }, []);
 
   return (
     <header className="header">
       <div className="container">
         <div className="header-home">
-          <Link to="/">relocate</Link>
+          <Link to="/" onClick={handleGoToTop}>
+            relocate
+          </Link>
         </div>
 
         <div className="header-link">
