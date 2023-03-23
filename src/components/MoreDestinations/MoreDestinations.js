@@ -5,9 +5,9 @@ import "swiper/css";
 import "swiper/css/pagination";
 import { Pagination } from "swiper";
 
-import { Destinations } from "../../../src/data.js";
+import { destinations } from "../../../src/data.js";
 import CardListDestinations from "../CardListDestination/CardListDestination";
-import CardDestinations from "../CardDestination/CardDestinations";
+import CardItem from "../CardItem/CardItem";
 import { Link } from "react-router-dom";
 
 const MoreDestinations = () => {
@@ -40,13 +40,13 @@ const MoreDestinations = () => {
         <div className="more__destinations-list">
           {!isUnderTablet ? (
             <CardListDestinations inPc={isUnderTablet}>
-              {Destinations.map(
+              {destinations.map(
                 (item, index) =>
                   index >= 4 &&
                   index < 8 && (
                     <div className="card-items__wrap" key={item.id}>
                       <Link to={`destinations/details/${item.id}`}>
-                        <CardDestinations item={item} />
+                        <CardItem item={item} />
                       </Link>
                     </div>
                   )
@@ -68,13 +68,13 @@ const MoreDestinations = () => {
                 pagination={true}
                 modules={[Pagination]}
               >
-                {Destinations.map(
+                {destinations.map(
                   (item, index) =>
                     index >= 4 &&
                     index < 8 && (
                       <SwiperSlide key={item.id}>
                         <Link to={`destinations/details/${item.id}`}>
-                          <CardDestinations item={item} />
+                          <CardItem item={item} />
                         </Link>
                       </SwiperSlide>
                     )

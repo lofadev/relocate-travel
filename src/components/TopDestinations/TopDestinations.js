@@ -7,9 +7,9 @@ import { Pagination } from "swiper";
 import "swiper/css";
 import "swiper/css/pagination";
 
-import { Destinations } from "../../../src/data.js";
+import { destinations } from "../../../src/data.js";
 import CardListDestinations from "../CardListDestination/CardListDestination";
-import CardDestinations from "../CardDestination/CardDestinations";
+import CardItem from "../CardItem/CardItem";
 
 const TopDestinations = ({ getRef }) => {
   const topDestinationsRef = useRef();
@@ -44,12 +44,12 @@ const TopDestinations = ({ getRef }) => {
             pagination={true}
             modules={[Pagination]}
           >
-            {Destinations.map(
+            {destinations.map(
               (item, index) =>
                 index < 4 && (
                   <SwiperSlide key={item.id}>
                     <Link to={`/destinations/details/${item.id}`}>
-                      <CardDestinations item={item} />
+                      <CardItem item={item} />
                     </Link>
                   </SwiperSlide>
                 )

@@ -1,6 +1,6 @@
 import React from "react";
 
-const CardDestinations = ({ item }) => {
+const CardItem = ({ item }) => {
   const { id, image, country, city } = item;
   return (
     <div className="card">
@@ -15,4 +15,4 @@ const CardDestinations = ({ item }) => {
   );
 };
 
-export default CardDestinations;
+export default CardItem;
