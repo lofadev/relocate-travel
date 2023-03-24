@@ -1348,7 +1348,7 @@ li {
   }
 
   @media (hover: hover) {
-    &:hover &-items img {
+    &-items:hover img {
       transform: scale(1.03);
     }
   }
