@@ -12,14 +12,7 @@ const CardArticles = ({ item }) => {
       <div className="card-articles__content">
         <h2 className="card-articles__heading">{heading}</h2>
 
-        <a
-          className="card-articles__link"
-          href={`https://${link}`}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          {link}
-        </a>
+        <p className="card-articles__link">{link}</p>
       </div>
     </div>
   );
