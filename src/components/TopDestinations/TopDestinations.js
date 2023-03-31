@@ -1,5 +1,5 @@
-import { Link } from "react-router-dom";
 import { useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 //swiper
@@ -8,8 +8,8 @@ import "swiper/css";
 import "swiper/css/pagination";
 
 import { destinations } from "../../../src/data.js";
-import CardListDestinations from "../CardListDestination/CardListDestination";
 import CardItem from "../CardItem/CardItem";
+import CardListDestinations from "../CardListDestination/CardListDestination";
 
 const TopDestinations = ({ getRef }) => {
   const topDestinationsRef = useRef();
@@ -25,8 +25,8 @@ const TopDestinations = ({ getRef }) => {
         </h2>
         <div className="round-dot"></div>
         <p className="destinations-text">
-          It's hard enough deciding to move, you don't have to worry about where to move to. These
-          are some of the most popular and best locations to move to based on a number of factors.
+          It's hard enough deciding to move, you don't have to worry about where to move to. These are some of the most
+          popular and best locations to move to based on a number of factors.
         </p>
 
         <CardListDestinations>

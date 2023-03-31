@@ -1,6 +1,7 @@
 import React from "react";
-import Vali from "../../assets/imgs/image_vali.png";
+
 import Suitcase from "../../assets/imgs/image_suitcase.png";
+import Vali from "../../assets/imgs/image_vali.png";
 import Button from "../Button/Button";
 
 const Reinforcement = () => {

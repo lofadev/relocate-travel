@@ -1,12 +1,14 @@
 import React, { useEffect } from "react";
+import { useParams } from "react-router-dom";
 
-import Header from "../../components/Header/Header";
-import SectionHero from "../../components/SectionHero/SectionHero";
 import DestinationsContent from "../../components/DestinationsContent/DestinationsContent";
-import Reinforcement from "../../components/Reinforcement/Reinforcement";
 import Footer from "../../components/Footer/Footer";
+import Header from "../../components/Header/Header";
+import Reinforcement from "../../components/Reinforcement/Reinforcement";
+import SectionHero from "../../components/SectionHero/SectionHero";
 
 const DestinationsDetails = () => {
+  const { id } = useParams();
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -14,7 +16,7 @@ const DestinationsDetails = () => {
   return (
     <div id="wrapper">
       <Header></Header>
-      <SectionHero></SectionHero>
+      <SectionHero id={id}></SectionHero>
       <DestinationsContent></DestinationsContent>
       <Reinforcement></Reinforcement>
       <Footer></Footer>

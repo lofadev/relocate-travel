@@ -18,9 +18,7 @@ const CityDetails = () => {
                   )}
                 </span>
 
-                <span className={`city-details__text ${itemData.icon ? "" : "text-normal"}`}>
-                  {itemData.text}
-                </span>
+                <span className={`city-details__text ${itemData.icon ? "" : "text-normal"}`}>{itemData.text}</span>
               </div>
             ))}
           </div>

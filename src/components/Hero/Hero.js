@@ -1,4 +1,5 @@
 import React from "react";
+
 import btnDown from "../../assets/imgs/btn_down.png";
 
 const Hero = (data) => {

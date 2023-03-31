@@ -66,6 +66,7 @@ html {
   font-family: "Circular Std", sans-serif;
   font-size: 62.5%;
   scroll-behavior: smooth;
+  text-rendering: optimizeSpeed;
 }
 
 body {
@@ -129,7 +130,7 @@ li {
   &-heading::after {
     content: "";
     width: 70%;
-    height: 10rem;
+    height: 100px;
     position: absolute;
     bottom: -18rem;
     left: 17%;
@@ -220,7 +221,6 @@ li {
   max-width: var(--main-width);
   margin: 0 auto;
   background-color: var(--white);
-  padding-top: var(--header-height);
 }
 
 .container {
@@ -451,6 +451,7 @@ li {
   height: 81.2rem;
   position: relative;
   background: url("./assets/imgs/hero_background.png") top center / cover no-repeat;
+  margin-top: var(--header-height);
 
   .btn-down {
     background-color: transparent;
@@ -502,6 +503,7 @@ li {
     &-main {
       flex-direction: column;
       position: absolute;
+      align-items: center;
       left: 50%;
       top: 50%;
       transform: translate(-50%, -50%);
@@ -524,10 +526,6 @@ li {
   @media screen and (max-width: 767.98px) {
     &-more {
       margin-top: 0;
-    }
-
-    &-main {
-      align-items: center;
     }
   }
 }
@@ -681,7 +679,7 @@ li {
 
   @media (hover: hover) {
     &:hover img {
-      transform: scale(1.1);
+      transform: scale(1.05);
     }
     &:hover &-text {
       color: var(--normal-green);
@@ -861,6 +859,12 @@ li {
     }
   }
 
+  @media screen and (max-width: 1023.98px) {
+    &-heading {
+      color: var(--yellow);
+    }
+  }
+
   @media screen and (max-width: 767.98px) {
     .container {
       padding-bottom: 2rem;
@@ -881,7 +885,6 @@ li {
 
     &-heading {
       font-size: 1.8rem;
-      color: var(--yellow);
       margin-bottom: 1rem;
     }
   }
@@ -949,6 +952,7 @@ li {
     border-radius: 0 0 2rem 2rem;
     height: 54.2rem;
     box-shadow: 0 2rem 2rem rgba(100, 100, 111, 0.2);
+    cursor: unset;
 
     &-overlay {
       background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 100%);
@@ -1018,15 +1022,32 @@ li {
   }
 }
 .content-left {
-  .tab {
+  .paragraph {
+    margin-bottom: 3rem;
+    font-weight: 400;
+    font-size: 1.6rem;
+    line-height: calc(25 / 16);
+    color: #565656;
+  }
+
+  @media screen and (max-width: 1023.98px) {
+    .paragraph {
+      text-align: justify;
+    }
+  }
+}
+
+.tab {
+  position: relative;
+  &-menu {
     width: 100%;
+    height: 5rem;
     display: flex;
     justify-content: space-between;
     margin-bottom: 4rem;
-    height: 5rem;
   }
 
-  .tab li {
+  &-menu li {
     color: #565656;
     height: fit-content;
     font-weight: 900;
@@ -1038,7 +1059,7 @@ li {
     transition: all 0.2s linear;
   }
 
-  .tab li.active {
+  &-menu li.active {
     color: var(--primary-color);
     position: relative;
     &::after {
@@ -1054,47 +1075,15 @@ li {
     }
   }
 
-  .paragraph {
-    margin-bottom: 3rem;
-    font-weight: 400;
-    font-size: 1.6rem;
-    line-height: calc(25 / 16);
-    color: #565656;
-  }
-
-  .articles {
-    margin-top: 5rem;
-
-    &-link {
-      display: block;
-    }
-
-    &-heading {
-      color: #565656;
-      text-transform: uppercase;
-      font-weight: 700;
-      font-size: 1.2rem;
-      line-height: calc(14 / 12);
-      margin-bottom: 2.5rem;
-    }
-    @media screen and (min-width: 1024px) {
-      &-menu > div {
-        display: grid;
-        gap: 2rem;
-        grid-template-columns: repeat(3, 1fr);
-      }
-    }
-  }
-
   @media (hover: hover) {
-    .tab li:hover {
+    .tab-menu li:hover {
       color: var(--primary-color);
       cursor: pointer;
     }
   }
 
   @media screen and (max-width: 1023.98px) {
-    .tab {
+    .tab-menu {
       margin-bottom: 2rem;
     }
 
@@ -1104,12 +1093,36 @@ li {
   }
 
   @media screen and (max-width: 767.98px) {
-    .tab li:not(:last-of-type) {
+    .tab-menu li:not(:last-of-type) {
       margin-right: 4rem;
     }
 
-    .tab {
+    .tab-menu {
       overflow-x: auto;
+    }
+  }
+}
+
+.articles {
+  margin-top: 5rem;
+
+  &-link {
+    display: block;
+  }
+
+  &-heading {
+    color: #565656;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 1.2rem;
+    line-height: calc(14 / 12);
+    margin-bottom: 2.5rem;
+  }
+  @media screen and (min-width: 1024px) {
+    &-menu > div {
+      display: grid;
+      gap: 2rem;
+      grid-template-columns: repeat(3, 1fr);
     }
   }
 }
@@ -1183,6 +1196,7 @@ li {
   @media screen and (max-width: 1023.98px) {
     &__content {
       height: unset;
+      bottom: 3rem;
     }
 
     &__heading {
@@ -1350,6 +1364,20 @@ li {
   @media (hover: hover) {
     &-items:hover img {
       transform: scale(1.03);
+    }
+  }
+
+  @media screen and (max-width: 1023.98px) {
+    & {
+      height: unset;
+    }
+  }
+
+  @media screen and (max-width: 767.98px) {
+    .btn__all-photos {
+      right: 50%;
+      transform: translateX(50%);
+      width: max-content;
     }
   }
 }

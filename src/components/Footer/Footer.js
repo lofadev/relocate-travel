@@ -1,15 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
+import { faFacebook, faInstagram, faLinkedinIn, faTwitter } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import BackgroundBeach from "../../assets/imgs/footer_beach.png";
+
 import FooterBackgroundTop from "../../assets/imgs/footer_background-top.png";
-import {
-  faFacebook,
-  faInstagram,
-  faLinkedinIn,
-  faTwitter,
-} from "@fortawesome/free-brands-svg-icons";
+import BackgroundBeach from "../../assets/imgs/footer_beach.png";
 
 const Footer = () => {
   return (

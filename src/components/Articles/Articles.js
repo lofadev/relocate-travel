@@ -26,21 +26,16 @@ const Articles = () => {
       <h2 className="articles-heading">ARTICLES ABOUT PARATY</h2>
 
       <div className="articles-menu">
-        {!isUnderTablet ? (
+        {!isUnderTablet && (
           <div>
             {articles.map((item) => (
-              <a
-                className="articles-link"
-                href={`https://${item.link}`}
-                target="_blank"
-                rel="noreferrer"
-                key={item.id}
-              >
+              <a className="articles-link" href={`https://${item.link}`} target="_blank" rel="noreferrer" key={item.id}>
                 <CardArticles item={item}></CardArticles>
               </a>
             ))}
           </div>
-        ) : (
+        )}
+        {isUnderTablet && (
           <Swiper
             slidesPerView={1}
             spaceBetween={20}
@@ -54,12 +49,7 @@ const Articles = () => {
           >
             {articles.map((item) => (
               <SwiperSlide key={item.id}>
-                <a
-                  className="articles-link"
-                  href={`https://${item.link}`}
-                  target="_blank"
-                  rel="noreferrer"
-                >
+                <a className="articles-link" href={`https://${item.link}`} target="_blank" rel="noreferrer">
                   <CardArticles item={item}></CardArticles>
                 </a>
               </SwiperSlide>
