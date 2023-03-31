@@ -12,7 +12,7 @@ const CardArticles = ({ item }) => {
       <div className="card-articles__content">
         <h2 className="card-articles__heading">{heading}</h2>
 
-        <p className="card-articles__link">{link}</p>
+        <span className="card-articles__link">{link}</span>
       </div>
     </div>
   );

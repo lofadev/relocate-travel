@@ -1,21 +1,14 @@
 import React, { useEffect, useState } from "react";
 
-import { destinations } from "../../data.js";
 import backgroundLinearWhite from "../../assets/imgs/linear_gradient_white.png";
+import { destinations } from "../../data.js";
 import CardItem from "../CardItem/CardItem.js";
-import { useParams } from "react-router-dom";
 
-const SectionHero = () => {
-  const { id } = useParams();
-
+const SectionHero = ({ id }) => {
   const [currentCard, setCurrentCard] = useState(null);
 
   useEffect(() => {
-    const card = [
-      destinations.find((item) => {
-        return item.id === parseInt(id);
-      }),
-    ].map((item) => {
+    const card = [destinations.find((item) => item.id === parseInt(id))].map((item) => {
       return {
         id: item.id,
         country: item.country,

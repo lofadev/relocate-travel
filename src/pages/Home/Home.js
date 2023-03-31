@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 
+import Footer from "../../components/Footer/Footer";
 import Header from "../../components/Header/Header";
 import Hero from "../../components/Hero/Hero";
-import TopDestinations from "../../components/TopDestinations/TopDestinations";
 import MoreDestinations from "../../components/MoreDestinations/MoreDestinations";
-import Footer from "../../components/Footer/Footer";
+import TopDestinations from "../../components/TopDestinations/TopDestinations";
 import "../../index.scss";
 
 const Home = () => {

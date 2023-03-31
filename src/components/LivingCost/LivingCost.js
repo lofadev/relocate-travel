@@ -1,6 +1,7 @@
 import React from "react";
-import LivingCostItem from "./LivingCostItem";
+
 import { livingcosts } from "../../data";
+import LivingCostItem from "./LivingCostItem";
 
 const LivingCost = () => {
   return (

@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Link } from "react-router-dom";
+
 // Import Swiper styles
+import { Pagination } from "swiper";
 import "swiper/css";
 import "swiper/css/pagination";
-import { Pagination } from "swiper";
 
 import { destinations } from "../../../src/data.js";
-import CardListDestinations from "../CardListDestination/CardListDestination";
 import CardItem from "../CardItem/CardItem";
-import { Link } from "react-router-dom";
+import CardListDestinations from "../CardListDestination/CardListDestination";
 
 const MoreDestinations = () => {
   const [isUnderTablet, setIsUnderTablet] = useState(window.innerWidth < 1024);
@@ -32,13 +33,12 @@ const MoreDestinations = () => {
         </h2>
         <div className="round-dot"></div>
         <p className="destinations-text black">
-          Your peace of mind doesn't have to be tied to where everyone else is. We have a good
-          number of travel and relocation destinations. Take your time and find the perfect one for
-          you.
+          Your peace of mind doesn't have to be tied to where everyone else is. We have a good number of travel and
+          relocation destinations. Take your time and find the perfect one for you.
         </p>
 
         <div className="more__destinations-list">
-          {!isUnderTablet ? (
+          {!isUnderTablet && (
             <CardListDestinations inPc={isUnderTablet}>
               {destinations.map(
                 (item, index) =>
@@ -52,7 +52,8 @@ const MoreDestinations = () => {
                   )
               )}
             </CardListDestinations>
-          ) : (
+          )}
+          {isUnderTablet && (
             <CardListDestinations inPc={isUnderTablet}>
               <Swiper
                 slidesPerView={1}

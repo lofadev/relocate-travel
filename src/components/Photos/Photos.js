@@ -1,7 +1,7 @@
 import React from "react";
 
-import { photos } from "../../data";
 import ImageIcon from "../../assets/imgs/image_icon.svg";
+import { photos } from "../../data";
 
 const Photos = () => {
   return (
